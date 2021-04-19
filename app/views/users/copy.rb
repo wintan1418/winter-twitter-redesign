@@ -1,24 +1,38 @@
-<div class='d-flex flex-column w-100'>
-  <div class='d-flex justify-content-center align-items-center flex-column flex-md-row'>
-    <%= link_follow(current_user, @user) %>
-    <%= profile_photo(@user) %>
-    <%= link_unfollow(@user)%>
-  </div>
-  <span class='align-self-center bold-name-right text-dark text-center mt-1'><%= @user.full_name %></span>
-  <span class='align-self-center username text-center color-light-grey'>@<%= @user.username %></span>
-  
-  <div class='d-flex flex-column flex-md-row'>
-    <div class='border flex-grow-1'>
-      <span class='text-center d-block font-weight-bolder'><%= @user.opinions.count %></span>
-      <span class='text-center d-block bold-flw color-light-grey'>Opinions</span>
-    </div>
-    <div class='border flex-grow-1'>
-      <span class='text-center d-block font-weight-bolder'><%= @user.followers.count %></span>
-      <span class='text-center d-block bold-flw color-light-grey'>Following</span>
-    </div>
-    <div class='border flex-grow-1'>
-      <span class='text-center d-block font-weight-bolder'><%= @user.followeds.count %></span>
-      <span class='text-center d-block bold-flw color-light-grey'>Followers</span>
-    </div>
-  </div>
-</div>
+class User < ApplicationRecord
+  validates :username, presence: true, uniqueness: true, format: { without: /[<>]/, message: "symbols '<' and '>' are invalid for username" }
+  validates :full_name, presence: true
+  has_many :opinions, dependent: :delete.all
+  has_many :followers, class_name: 'Following', foreign_key: 'follower_id', dependent: :destroy
+  has_many :followeds, class_name: 'Following', foreign_key: 'followed_id', dependent: :destroy
+  has_many :follows, through: :followers, source: :followed
+  has_many :followds, through: :followeds, source: :follower
+
+  def followeds_opinions
+    ids = follows.select(:id).ids
+    ids << id
+    Opinion.ordered_opinion.include_user_copied.user_filter_Opinion(User.user_and_following(ids))
+  end
+
+  def who_follow
+    ids = follows.select(:id).ids
+    ids << id
+    User.ordered_users.user_who_follow(ids)
+  end
+
+  def unfollow(user)
+    follows.destroy(user)
+  end
+
+  def copy_opi(opi)
+    copy_opinion = if opi.copied_id.nil? || opi.created_at != opi.updated_at
+                     opinions.build(text: opi.text, copied_id: opi.user_id)
+                   else
+                     opinions.build(text: opi.text, copied_id: opi.copied_id)
+                   end
+    copy_opinion.save
+  end
+
+  scope :ordered_users, -> { order(created_at: :desc) }
+  scope :user_and_following, ->(ids) { where(id: ids) }
+  scope :user_who_follow, ->(ids) { where.not(id: ids) }
+end
