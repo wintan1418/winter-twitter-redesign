@@ -4,11 +4,11 @@ class User < ApplicationRecord
         validates :full_name, presence: true
         has_many :opinions, dependent: :delete.all 
         has_many :followers, class_name:  'following', foreign_key: 'follower_id',dependent: :destroy
-        has_many :followee, class_name:  'following', foreign_key: 'followee_id',dependent: :destroy
-        has_many :followers, through: :followees, source: :follower
-        has_many :followees, through: :followers, source: :followee
+        has_many :followed, class_name:  'following', foreign_key: 'followed_id',dependent: :destroy
+        has_many :followers, through: :followeds, source: :follower
+        has_many :followeds, through: :followers, source: :followed
     
-      def followees_opinions
+      def followeds_opinions
         ids = follows.select(:id).ids
         ids << id
         Opinion.ordered_opinion.include_user_copied.user_filter_Opinion(User.user_and_following(ids))

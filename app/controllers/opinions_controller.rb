@@ -4,7 +4,7 @@ class OpinionsController < ApplicationController
     
     def index
         if current_user
-          @opinions = current_user.followees_opinions
+          @opinions = current_user.followeds_opinions
           @users = current_user.who_follow
         else
           @opinions = Opinion.ordered_opinion.include_user_copied
