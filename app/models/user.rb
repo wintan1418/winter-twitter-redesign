@@ -5,9 +5,9 @@ class User < ApplicationRecord
     has_many :followers, class_name:  'following', foreign_key: 'follower_id',dependent: :destroy
     has_many :followee, class_name:  'following', foreign_key: 'followee_id',dependent: :destroy
     has_many :followers, through: :followees, source: :follower
-    has_many :followee, through: :followers, source: :followee
+    has_many :followees, through: :followers, source: :followee
 
-  def followers_opinions
+  def followees_opinions
     ids = follows.select(:id).ids
     ids << id
     Opinion.ordered_opinion.include_user_copied.user_filter_Opinion(User.user_and_following(ids))
