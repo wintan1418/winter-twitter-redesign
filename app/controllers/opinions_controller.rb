@@ -13,5 +13,17 @@ class OpinionsController < ApplicationController
         @opinion = Opinion.new
       end
 
+def show
+end
+
+def new
+@opinions = Opinions.new
+end
+
+def edit
+redirect_to_opinions_path unless user == @opinion.user
+end
+
+
 
 end
