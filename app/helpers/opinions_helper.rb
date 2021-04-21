@@ -1,6 +1,6 @@
 module OpinionsHelper
   def right_title
-    current_user ? 'WHO TO FOLLOW' : 'WHO IS HERE'
+    current_user ? 'WHO CAN IFOLLOW' : 'CHECK  HERE'
   end
 
   def center_title
@@ -72,7 +72,7 @@ module OpinionsHelper
     return unless current_user == opinion.user
 
     cntnt = "<div class='bg-white w-75 border rounded-border p-3 my-4 color-light-grey'>"
-    cntnt.concat("<p class='font-weight-bold'>CORRECT YOUR OPINION</p>")
+    cntnt.concat("<p class='font-weight-bold'>ADJUST YOUR OPINION</p>")
     cntnt.concat(form_with(model: opinion, local: true, html: { method: 'patch' }))
     form_with(model: opinion, local: true) do |form|
       cntnt.concat((form.text_area :text, class: 'form-text', placeholder: 'Give your opinion...', autofocus: true))
@@ -92,7 +92,7 @@ module OpinionsHelper
   def form_opinion(opinion)
     return unless current_user
 
-    cntnt = "<div class='bg-white w-75 border rounded-border p-3 my-4 color-light-grey'><p class='font-weight-bold'>WRITE ABOUT A MOVIE</p>"
+    cntnt = "<div class='bg-white w-75 border rounded-border p-3 my-4 color-light-grey'><p class='font-weight-bold'>WHAT IS YOUR BITCOIN STORY</p>"
     cntnt.concat(form_with(model: opinion, local: true))
     form_with(model: opinion, local: true) do |form|
       cntnt.concat((form.text_area :text, class: 'form-text', placeholder: 'Give your opinion...', autofocus: true))
