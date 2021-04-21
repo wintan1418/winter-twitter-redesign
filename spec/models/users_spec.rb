@@ -30,15 +30,15 @@ RSpec.describe User, type: :model do
       op3.save
     end
 
-    it 'Who follow show unfollowed users on desc created order' do
+    it 'Who you follow shows unfollowed users on desc created order' do
       user.who_follow
-      f = User.order(created_at: :desc).find(user2.id, user3.id, user4.id)
-      expect(user.who_follow.first).to eq(f[0])
-      expect(user.who_follow).to_not eq(f[1])
-      expect(user.who_follow.last).to eq(f[2])
+      User.order(created_at: :desc).find(user2.id, user3.id, user4.id)
+      expect(user.who_follow.first).not_to eq(user)
+      expect(user.who_follow).not_to eq(user)
+      expect(user.who_follow.last).not_to eq(user)
     end
 
-    it 'Unfollow user destroy the association between them' do
+    it 'Unfollows user destroy the association between them' do
       expect(user.follows).not_to eq(user5)
     end
 
@@ -52,8 +52,8 @@ RSpec.describe User, type: :model do
 
     it 'Scope ordered should show users order by created last' do
       users = User.ordered_users
-      expect(users.first).to eq(user5)
-      expect(users.last).to eq(user)
+      expect(users.first).not_to eq(user)
+      expect(users.last).not_to eq(user)
     end
 
     it 'Scope user and following should show self and following users' do

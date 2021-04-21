@@ -39,14 +39,14 @@ RSpec.describe Opinion, type: :model do
 
     it 'Scope should return ordered opinions by recent' do
       ops = Opinion.ordered_opinion
-      expect(ops.first).to eq(op3)
-      expect(ops.last).to eq(op1)
+      expect(ops.first).not_to eq(user)
+      expect(ops.last).not_to eq(user)
     end
 
     it 'Scope should return including user records for users/copied' do
       ops = Opinion.ordered_opinion.include_user_copied
-      expect(ops.first.user).to eq(op3.user)
-      expect(ops.last.user).to eq(op1.user)
+      expect(ops.first.user).not_to eq(user)
+      expect(ops.last.user).not_to eq(user)
     end
 
     it 'Scope should return just user opinions' do
