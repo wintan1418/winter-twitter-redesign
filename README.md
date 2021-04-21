@@ -93,7 +93,7 @@ It will run the 3 test files:
 Oluwadare Juwon
 
 - Github: [@Oluwadare Juwon](https://github.com/wintan1418)
-- Linkedin: [Oluwadare-juwon](www.linkedin.com/in/oluwintan)
+- Linkedin: (www.linkedin.com/in/oluwintan)
 - Twitter: [Oluwadare-juwon](https://twitter.com/@oluwadarejuwon)
 
 ## 🤝 Contributing
