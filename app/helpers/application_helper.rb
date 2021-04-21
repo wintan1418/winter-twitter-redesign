@@ -1,7 +1,7 @@
 module ApplicationHelper
   def header_bar
     cntnt = "<a href='/opinions'>"
-    cntnt.concat("<img src='https://raw.githubusercontent.com/Stricks1/cap-twitter/feature/app/assets/images/clapperboardWhite.png'")
+    cntnt.concat("<img src='https://raw.githubusercontent.com/Stricks1/cap-twitter/feature/app/assets/images/cryoto.png'")
     cntnt.concat("alt='clapperboard' class='logo'><div class='align-self-center px-2 d-flex justify-content-between'></a>")
     if current_user
       cntnt.concat(logged_btn)
