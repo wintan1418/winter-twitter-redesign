@@ -1,7 +1,7 @@
 module ApplicationHelper
   def header_bar
     cntnt = "<a href='/opinions'>"
-    cntnt.concat("<img src='https://rawcdn.githack.com/wintan1418/winter-twitter-redesign/fd31d4cb9af08f26e39eb1946499030f5a8629f3/app/assets/images/crypto2.jpg'")
+    cntnt.concat("<img src='https://rawcdn.githack.com/wintan1418/winter-twitter-redesign/8dd737e84b73b8f87d8c2211c34b1fea31470988/app/assets/images/59571-cryptocurrency-currency-icon-bitcoin-cash-hd-image-free-png.png'")
     cntnt.concat("alt='clapperboard' class='logo'><div class='align-self-center px-2 d-flex justify-content-between'></a>")
     if current_user
       cntnt.concat(logged_btn)
