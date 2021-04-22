@@ -85,7 +85,7 @@ module ApplicationHelper
     cntnt.concat(user_path(usr))
     cntnt.concat("' class='d-block left-links d-flex p-4'><i class='fa fa-user logo-left px-2' aria-hidden='true'></i><span class='left-bold-txt'>profile</span></a>")
     cntnt.concat("<a href='#' class='d-block left-links d-flex p-4'>")
-  
+
     cntnt.concat("<span class='left-bold-txt'></span></a></div></div></div><div class='col-8 col-md-9 d-flex flex-column min-vh-100'>")
   end
 end
