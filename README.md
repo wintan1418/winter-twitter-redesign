@@ -16,6 +16,8 @@ There is as well as an explicit button to follow/unfollow on the profile user
 
 ## Screenshot of the page
 ![Screenshot Profile Page](./app/assets/images/readme2.png)
+## Screenshot of the rspec
+![Screenshot rspec](./app/assets/images/rspec.png)
 
 ## Built With
 
