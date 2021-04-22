@@ -80,12 +80,12 @@ module ApplicationHelper
     cntnt.concat(usr.followeds.count.to_s)
     cntnt.concat("</span><span class='text-center d-block bold-flw'>Followers</span></div></div><div><a href='")
     cntnt.concat(opinions_path)
-    cntnt.concat("' class='d-block left-links d-flex p-4'><i class='fa fa-ticket logo-left px-2' aria-hidden='true'></i><span class='left-bold-txt'>home</span></a><a href='#' class='d-block left-links d-flex p-4'><i class='fa fa-at logo-left px-2' aria-hidden='true'></i>")
-    cntnt.concat("<span class='left-bold-txt'></span></a><a href='#' class='d-block left-links d-flex p-4'><i class='fa fa-hashtag logo-left px-2' aria-hidden='true'></i><span class='left-bold-txt'></span></a><a href='")
+    cntnt.concat("' class='d-block left-links d-flex p-4'><i class='fa fa-ticket logo-left px-2' aria-hidden='true'></i><span class='left-bold-txt'>home</span></a><a href='#' class='d-block left-links d-flex p-4'>")
+    cntnt.concat("<span class='left-bold-txt'></span></a><a href= class='d-block left-links d-flex p-4'><left px-2'></span></a><a href='")
     cntnt.concat(user_path(usr))
     cntnt.concat("' class='d-block left-links d-flex p-4'><i class='fa fa-user logo-left px-2' aria-hidden='true'></i><span class='left-bold-txt'>profile</span></a>")
     cntnt.concat("<a href='#' class='d-block left-links d-flex p-4'>")
-    cntnt.concat("<i class='fa fa-pie-chart logo-left px-2' aria-hidden='true'></i>")
+  
     cntnt.concat("<span class='left-bold-txt'></span></a></div></div></div><div class='col-8 col-md-9 d-flex flex-column min-vh-100'>")
   end
 end
