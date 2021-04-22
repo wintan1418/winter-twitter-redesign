@@ -32,7 +32,7 @@ There is as well as an explicit button to follow/unfollow on the profile user
 
 ## Video Presentation
 
-[Project Presentation](https://www.loom.com/share/800ca18284a9437992655cec7ab6a12f)
+[Project Presentation](https://www.loom.com/share/ead9c75a178f4f348cef25b369950647)
 
 
 ## Getting Started
