@@ -1,18 +1,20 @@
 # Ruby on Rails Capstone Project.
-This project entails  redesigning a twitter social media web app to share opinions about tourism. I refered  to a lot of previous knowledge from previous modules,incooperating the skills gotten from html/css/bootstrap, and ruby and rails to implement a simple MVP app.
+This project entails redesigning a Twitter social media web app to share opinions about tourism. I referred to a lot of previous knowledge from previous modules, incorporating the skills gotten from HTML/CSS/bootstrap, and ruby and rails to implement a simple MVP app.
 
-The project has a Sign up/Login  section with username as the  reqired login parameter (as required).  User is to have  a photo to depict on his profile/opinions and also a  cover image that declares his profile. This images are in url form,and if he chooses to be shy about his face,he can use the default image.
+The project has a Sign up/Login section with a username as the required login parameter (as required).  The user is to have a photo to depict on his profile/opinions and also a  cover image that declares his profile. These images are in URL form, and if he chooses to be shy about his face, he can use the default image.
 
-Having logged in  the user can view other user's posts about crypto on a general 'timeline' and on the pane to the right,  users who have an account. 
+Having logged in the user can view other user's posts about crypto on a general 'timeline' and on the pane to the right,  users who have an account. 
 
 Logged in the user see a timeline with only opinions of the ones he follows and his own opinions. On that timeline, he can edit/delete his own opinions and on other user's opinions, he can 'retweet' (the created copied opinion will have a link for the original user who created it).
 
-We also have a section, that displays a cover image above for the  users post.
+We also have a section, that displays a cover image above for the users’ post.
 
 There is as well as an explicit button to follow/unfollow on the profile user
 
 
-## Screenchot of the page
+
+
+## Screenshot of the page
 ![Screenshot Profile Page](./app/assets/images/readme2.png)
 
 ## Built With
