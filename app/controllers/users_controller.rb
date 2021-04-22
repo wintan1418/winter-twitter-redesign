@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       if @user.save
         session[:user_id] = @user.id
         session[:username] = @user.username
-        format.html { redirect_to opinions_path, notice: 'User was successfully created.' }
+        format.html { redirect_to opinions_path, notice: 'You successfully created.' }
       else
         format.html { render :new }
       end
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to opinions_path, notice: 'User was successfully updated.' }
+        format.html { redirect_to opinions_path, notice: 'You successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to logout_path, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to logout_path, notice: 'You successfully destroyed.' }
     end
   end
 
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    flash[:alert] = 'Nonexistent user id'
+    flash[:alert] = 'Wrong user id'
     redirect_to opinions_path
   end
 
