@@ -50,8 +50,6 @@ RSpec.describe User, type: :model do
       expect(user.opinions.last.copied_id).to_not eq(op3.id)
     end
 
-   
-
     it 'Scope user and following should show self and following users' do
       ids = user.follows.select(user.id).ids
       ids << user.id

@@ -43,8 +43,6 @@ RSpec.describe Opinion, type: :model do
       expect(ops.last).not_to eq(user)
     end
 
-  
-
     it 'Scope should return just user opinions' do
       ops = Opinion.user_filter_Opinion(user.id)
       expect(ops).to include(op1)
