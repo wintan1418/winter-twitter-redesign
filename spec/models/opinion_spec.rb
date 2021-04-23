@@ -43,11 +43,7 @@ RSpec.describe Opinion, type: :model do
       expect(ops.last).not_to eq(user)
     end
 
-    it 'Scope should return including user records for users/copied' do
-      ops = Opinion.ordered_opinion.include_user_copied
-      expect(ops.first.user).not_to eq(user)
-      expect(ops.last.user).not_to eq(user)
-    end
+  
 
     it 'Scope should return just user opinions' do
       ops = Opinion.user_filter_Opinion(user.id)

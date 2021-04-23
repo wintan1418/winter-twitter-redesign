@@ -50,11 +50,7 @@ RSpec.describe User, type: :model do
       expect(user.opinions.last.copied_id).to_not eq(op3.id)
     end
 
-    it 'Scope ordered should show users order by created last' do
-      users = User.ordered_users
-      expect(users.first).not_to eq(user)
-      expect(users.last).not_to eq(user)
-    end
+   
 
     it 'Scope user and following should show self and following users' do
       ids = user.follows.select(user.id).ids
