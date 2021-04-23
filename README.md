@@ -32,7 +32,7 @@ There is as well as an explicit button to follow/unfollow on the profile user
 
 ## Live Demo
 
-[Live Demo Link](https://cryptic-winter.herokuapp.com/)
+[Live Demo Link]https://winter-twitter.herokuapp.com/)
 
 ## Video Presentation
 
